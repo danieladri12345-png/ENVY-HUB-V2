@@ -995,7 +995,7 @@ local function setupChar(char)
 	if head then
 		local old=head:FindFirstChild("MurderSpeedBB");if old then old:Destroy() end
 		local bb=Instance.new("BillboardGui",head)
-		bb.Name="MurderSpeedBB";bb.Size=UDim2.new(0,140,0,25)
+		bb.Name="OH-SPEED";bb.Size=UDim2.new(0,140,0,25)
 		bb.StudsOffset=Vector3.new(0,3,0);bb.AlwaysOnTop=true
 		speedLabel=Instance.new("TextLabel",bb)
 		speedLabel.Size=UDim2.new(1,0,1,0);speedLabel.BackgroundTransparency=1
@@ -1015,7 +1015,7 @@ LP.CharacterAdded:Connect(setupChar)
 if LP.Character then task.spawn(function() setupChar(LP.Character) end) end
 
 -- ===================== GUI CLEANUP =====================
-for _,n in pairs({"MurderHubGUI"}) do
+for _,n in pairs({"OH-HUB GUI"}) do
 	local old=game:GetService("CoreGui"):FindFirstChild(n);if old then old:Destroy() end
 	local pg2=LP:FindFirstChild("PlayerGui");if pg2 then local o=pg2:FindFirstChild(n);if o then o:Destroy() end end
 end
@@ -1043,7 +1043,7 @@ local IDLE_TAB_TXT   = DIM
 -- ===================== GUI BUILD =====================
 local function buildGUI()
 local gui=Instance.new("ScreenGui")
-gui.Name="MurderHubGUI";gui.ResetOnSpawn=false;gui.DisplayOrder=10;gui.IgnoreGuiInset=true
+gui.Name="OH-HUB";gui.ResetOnSpawn=false;gui.DisplayOrder=10;gui.IgnoreGuiInset=true
 if not pcall(function() gui.Parent=game:GetService("CoreGui") end) then
 	gui.Parent=LP:WaitForChild("PlayerGui")
 end
@@ -1095,7 +1095,7 @@ topDiv.BackgroundColor3=DARK_ACC;topDiv.BorderSizePixel=0;topDiv.ZIndex=11
 
 local titleLbl=Instance.new("TextLabel",topbar)
 titleLbl.Size=UDim2.new(0,150,1,0);titleLbl.Position=UDim2.new(0,12,0,0)
-titleLbl.BackgroundTransparency=1;titleLbl.Text="MURDER HUB"
+titleLbl.BackgroundTransparency=1;titleLbl.Text="OH-HUB"
 titleLbl.TextColor3=ACCENT;titleLbl.Font=Enum.Font.GothamBlack;titleLbl.TextSize=13
 titleLbl.TextXAlignment=Enum.TextXAlignment.Left;titleLbl.ZIndex=12
 
@@ -1141,7 +1141,7 @@ content.BackgroundColor3=BG;content.BorderSizePixel=0;content.ClipsDescendants=t
 local mini=Instance.new("TextButton",gui)
 mini.Name="BloodMini";mini.Size=UDim2.new(0,120,0,26);mini.Position=UDim2.new(0,40,0,40)
 mini.BackgroundColor3=SIDEBAR;mini.BorderSizePixel=0
-mini.Text="MURDER HUB";mini.TextColor3=ACCENT
+mini.Text="Orcalerito HUB";mini.TextColor3=ACCENT
 mini.Font=Enum.Font.GothamBlack;mini.TextSize=10;mini.ZIndex=20;mini.Visible=false
 Instance.new("UICorner",mini).CornerRadius=UDim.new(0,8)
 Instance.new("UIStroke",mini).Color=DARK_ACC
@@ -1468,7 +1468,7 @@ mbPanel = Instance.new("Frame", gui)
 mbPanel.Name             = "MobilePanel"
 mbPanel.Size             = UDim2.new(0, MB_TOTAL_W, 0, MB_TOTAL_H)
 mbPanel.Position         = UDim2.new(1, -(MB_TOTAL_W+8), 0.5, -(MB_TOTAL_H/2))
-mbPanel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mbPanel.BackgroundColor3 = Color3.fromRGB(0, 5, 0)
 mbPanel.BorderSizePixel  = 0
 mbPanel.Active           = true
 mbPanel.ZIndex           = 50
@@ -1628,9 +1628,9 @@ makeMobileBtn("AUTO\nRIGHT", 2,2, function()
 end)
 -- Row 3
 makeMobileBtn("TP\nDOWN",    3,1, function() task.spawn(runTPDown) end)
-makeMobileBtn("CARRY\nSPEED",3,2, function()
+makeMobileBtn("DESYNC SPEED",3,2, function()
 	speedMode=not speedMode
-	if modeValLbl then modeValLbl.Text=speedMode and "Carry" or "Normal" end
+	if modeValLbl then modeValLbl.Text=speedMode and "DESYNC SPEED" or "Normal" end
 	saveConfig()
 end)
 -- Row 4
@@ -2174,4 +2174,4 @@ switchTab("Speed")
 loadConfig()
 end -- buildGUI
 buildGUI()
-print("[Murder Hub v1] Loaded!")
+print("[OH-HUB V1 LEAKED] Loaded!")
